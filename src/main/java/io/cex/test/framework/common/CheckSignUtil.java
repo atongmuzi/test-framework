@@ -9,9 +9,18 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
+
+/**
+ * @author shenqingyan
+ * @create 2018/4/5 17:01
+ * @desc
+ **/
 @Slf4j
 public class CheckSignUtil {
-
+    /**
+    * @desc 获取字符串的MD5哈希值
+    * @param  md5Str 字符串
+    **/
     public static String getMD5(String md5Str) {
 
         try {
@@ -31,13 +40,10 @@ public class CheckSignUtil {
         }
     }
 
-
     /**
-     * 把需要验签的参数封装到TreeMap中,生成加密sign串
-     *
-     * @param map
-     * @return
-     */
+    * @desc 生成加密sign串
+    * @param  map 验签参数
+    **/
 
     public static String generateSignByRule(TreeMap<String, String> map) {
         String sign = "";
@@ -62,6 +68,10 @@ public class CheckSignUtil {
         return getMD5(sign);
     }
 
+    /**
+    * @desc 把需要验签的参数封装到TreeMap中,生成加密sign串
+    * @param
+    **/
     public static String generateSign(JSONObject jsonObject, String secretKey) throws Exception {
         jsonObject.put("secretkey", secretKey);
         TreeMap<String, String> treeMap = new TreeMap<>();
@@ -71,7 +81,10 @@ public class CheckSignUtil {
         return generateSign;
     }
 
-
+    /**
+    * @desc JSONObject 生成tree map
+    * @param
+    **/
     private static void getTreeMapFromJSONObject(JSONObject jsonObject, TreeMap<String, String> treeMap) {
         for (String key : jsonObject.keySet()) {
             if (treeMap.containsKey(key)) {

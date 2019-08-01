@@ -167,7 +167,7 @@ public class JsonFileUtil {
             }
 
         }
-        log.info("jsonobj translate to map successfully");
+        log.info("---------------jsonobj translate to map successfully");
         return map;
     }
 
@@ -196,7 +196,7 @@ public class JsonFileUtil {
             }
 
         }
-        log.info("jsonobj translate to map successfully");
+        log.info("------------jsonobj translate to map successfully");
         return map;
     }
     /**
@@ -213,7 +213,7 @@ public class JsonFileUtil {
                 arrmap[i][0] = new HashMap<>();
             }
         } else {
-            System.out.println("no data in test file");
+            log.error("--------------no data in test file");
         }
         for (int j = 0; j < parList.size(); j++) {
             String jsonstr = parList.get(j).toString();
