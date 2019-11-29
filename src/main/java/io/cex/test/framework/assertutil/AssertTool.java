@@ -547,6 +547,43 @@ public class AssertTool extends Assert{
     }
 
     /**
+     * @desc 判断实际值比预期值大的断言
+     * @param actual 实际输入的值,该值为String型
+     * @param except 预期的值
+     */
+    public static void isGreaterThan(String actual,int except){
+        if (actual==null||actual.equals("")){
+            fail("----Assert failed：actual is null or actual is empty----");
+        }
+        try {
+            int actualReal =Integer.parseInt(actual);
+            if (actualReal>except){
+                log.info("------Assert true：acutal is greater than except");
+            }else {
+                fail(format(actual,except,"----Assert failed：Actual number not greater than expect number"));
+            }
+        }catch (NumberFormatException e){
+            fail("----Assert failed：NumberFormatException，please input  String than can transform into number----");
+        }
+
+
+    }
+
+    /**
+     * @desc 判断实际值比预期值大的断言
+     * @param actual 实际输入的值,该值为Int型
+     * @param except 预期的值
+     */
+    public static void isGreaterThan(int actual,int except){
+        if (actual>except){
+            log.info("------Assert true：acutal is greater than except");
+        }else {
+            fail(format(actual,except,"----Assert failed：Actual number not greater than expect number"));
+        }
+
+    }
+
+    /**
      * @desc 格式化异常信息
      * @param message
      * @param expect
